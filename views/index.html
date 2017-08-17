@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE&libraries=places"></script>
+
+
+
+  <script>
+  var dat = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE"
+
+// var url = "https://maps.googleapis.com/maps/api/place/textsearch/output?query=stores+near+Bronx&key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE"
+
+  $.ajax({
+  url: dat,
+  type: "GET",
+  success: function(data){
+    console.log(true);
+  }
+  
+});
+
+  </script>
+</head>
+<body>
+  <h1>Test </h1>
+</body>
+</html>
