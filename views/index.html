@@ -11,18 +11,32 @@
 
 
   <script>
-  var dat = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE"
 
-// var url = "https://maps.googleapis.com/maps/api/place/textsearch/output?query=stores+near+Bronx&key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE"
+
+$(function(){
+
+  navigator.geolocation.getCurrentPosition(getWebsites);
+
+
+
+function getWebsites(position){
+  var url =  '/getWebsites/store/restaurant/' + position.coords.longitude + '/' + position.coords.latitude;
+  console.log(url);
 
   $.ajax({
-  url: dat,
-  type: "GET",
+  url: url,
+    type: "GET",
   success: function(data){
-    console.log(true);
+    console.log(data);
   }
-  
+
 });
+
+
+}
+
+});
+
 
   </script>
 </head>
