@@ -2,6 +2,11 @@
 
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/public/style.css">
+
   <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -9,38 +14,54 @@
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE&libraries=places"></script>
 
 
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"> </script>
+
+
+
+  <script src="/public/script.js"> </script>
+
+</head>
+<body>
+
+  <div class="text-wrapper">
+
+  <div class="one-sect">
+
+
+  <h1>Leverage your hustle near you</h1>
+
+
+<h2>Contact businesses near your location that don't have a website</h2>
+    <button class="ui button find-btn">
+  Locate
+</button>
+
+</div>
+
+
+
+  </div>
+
+
+</body>
+
+
 
   <script>
 
-
 $(function(){
 
-  navigator.geolocation.getCurrentPosition(getWebsites);
 
-
-
-function getWebsites(position){
-  var url =  '/getWebsites/store/restaurant/' + position.coords.longitude + '/' + position.coords.latitude;
-  console.log(url);
-
-  $.ajax({
-  url: url,
-    type: "GET",
-  success: function(data){
-    console.log(data);
-  }
-
+$(".find-btn").click(function(){
+window.location.href="/bizi"
+});
 });
 
 
-}
 
-});
+
 
 
   </script>
-</head>
-<body>
-  <h1>Test </h1>
-</body>
+
 </html>

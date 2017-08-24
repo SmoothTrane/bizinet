@@ -11,6 +11,14 @@ module.exports = function(app) {
 
 
 
+
+
+app.get("/bizi", function(req, res){
+  res.sendFile(path.join(__dirname, '../views', 'bizi.html'))
+});
+
+
+
 app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, '../views', 'index.html'))
 });

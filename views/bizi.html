@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/public/style.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbDE8OZXNK-gNSUYfKL5-8eVvlOl2_6GE&libraries=places"></script>
+
+
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"> </script>
+
+
+
+  <script src="/public/script.js"> </script>
+</head>
+
+<body>
+
+
+
+
+<h1> Local businesses in your area that don't have a website </h1>
+
+<table class="ui fixed single line celled table">
+  <thead>
+    <tr><th>Business Name</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+  </tr></thead>
+  <tbody>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<script>
+
+$(function(){
+
+  navigator.geolocation.getCurrentPosition(getWebsites);
+
+
+
+function getWebsites(position){
+  var url =  '/getWebsites/store/restaurant/' + position.coords.longitude + '/' + position.coords.latitude;
+  console.log(url);
+  $.ajax({
+  url: url,
+    type: "GET",
+  success: function(data){
+    $.each (data, function (item) {
+
+    	$("tbody").append(
+    		"<tr>" +
+    		"<td>" + data[item].name + "</td>" +
+    		"<td>" + data[item].formatted_address + "</td>" +
+    		"<td>" + data[item].formatted_phone_number + "</td>"
+    		);
+  
+});
+  }
+
+});
+
+
+}
+
+});
+
+</script>
+</body>
+</html>
